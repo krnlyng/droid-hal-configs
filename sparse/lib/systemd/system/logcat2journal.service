@@ -1,0 +1,9 @@
+[Unit]
+Description=Add logcat messages to journal
+Requires=droid-hal-init.service
+
+[Service]
+Environment=PATH=/sbin:/vendor/bin:/system/sbin:/system/bin:/system/xbin
+ExecStart=/bin/sh -c "/usr/libexec/droid-hybris/system/bin/logcat |/usr/bin/systemd-cat -t ANDROID_BASE"
+Restart=always
+
